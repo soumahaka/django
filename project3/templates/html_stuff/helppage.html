@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--Chargements des fichiers des dossiers statics(css, images, js)-->
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Django Level Two</title>
+    <!--Injection du fichier css pour le style des elements
+    de ce fichier html-->
+    <link rel="stylesheet" href="{% static "css/morning.css" %}"/>
+  </head>
+  <body>
+    <h1>Hi, welcome to Django Level Two!</h1>
+    <h2>Here are your access records:</h2>
+    <div class="djangtwo">
+
+        <!--Si il ya des donnees dans la table ou model AccessRecords
+        creer une table avec deux entete th et utiliser la boucle for
+        pour pourcourir la table AccessRecord et les afficher dans 
+        des lignes de deux celulles-->
+
+      {% if newAccessRecordKey %}
+          <table>
+            <thead>
+              <th>Site Name</th>
+              <th>Date Accessed</th>
+            </thead>
+
+            <!--access_records fait reference a la cle
+            contenant les donnees de la table AccessRecord dans le
+          dictionnaire dans la vue-->
+            {% for acc in newAccessRecordKey %}
+              <tr>
+                <td>{{ acc.name }}</td>
+                <td>{{ acc.date }}</td>
+              </tr>
+            {% endfor %}
+        </table>
+
+        <!--dans le cas ou il n ya pas de donnee dans 
+          la table AccessRecord, ecrire un message dans 
+          une paragraphe pour signaler-->
+      {% else %}
+        <p>No Access Records. Table Not Created.</p>
+      {% endif %}
+    </div>
+
+
+  </body>
+</html>

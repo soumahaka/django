@@ -1,0 +1,29 @@
+{% extends 'htmlfiles/base.html' %}
+
+{% block  mblock%}
+
+<div class="jumbotron">
+<h1>please login</h1>
+
+
+<!--la form qui permet de login cote html
+les name username et password sont recuperees cote django python-->
+<form action="{% url 'loginpage'  %}" method='post' >
+
+{% csrf_token %}
+<label for="username">Username</label>
+<input type="text" name="username" placeholder="enter username">
+
+<label for="password">Password</label>
+<input type="password" name="password">
+
+<input type="submit" value="Login">
+
+
+
+</form>
+
+
+</div>
+
+{% endblock  %}

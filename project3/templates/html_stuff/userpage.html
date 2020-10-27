@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "css/morning.css" %}"/>
+</head>
+<body>
+
+    <h1>Hi, welcome to Django Level Two!</h1>
+    <h2>Here are your user data:</h2>
+
+    <!--les templates tag if et  for pour parcourir les donnees d'un
+    objet d'une table-->
+    {% if newUserKey %}
+     <ol>
+        {% for user in newUserKey %}
+        <li>User info :</li>
+        <ul>
+            <!--ca se parcourt ligne par ligne avec les champs dispo sur
+            la ligne-->
+            <li>{{user.firstName}}</li>
+            <li>{{user.lastName}}</li>
+            <li>{{user.email}}</li>
+        </ul>
+        {% endfor %}
+     </ol>
+    {% endif %}
+    
+    
+</body>
+</html>

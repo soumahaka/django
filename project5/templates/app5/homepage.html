@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!--on herite le fichier html base.htmlen vue d'utiliser ses proprietes-->
+{% extends "app5/base.html" %}
+  {% block mblock %}
+
+  <!--Tout ce qui est dans ce block est le contenu de la page-->
+
+    <br><br><br>
+    <h1>Welcome to homepage !</h1>
+    <!--utilisation des filter, je ne sais pas vraiment si 
+    cest tres necessaire! pour l'instant-->
+    <h2>{{key1|cut:'world'}}</h2>
+    <h2>{{key2|add:100}}</h2>
+    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis et distinctio qui fugiat labore vero tempore a necessitatibus provident, quo, esse placeat ipsa nam error nulla nostrum veritatis tempora vel!</h2>
+    
+  {% endblock  %}
+
+    

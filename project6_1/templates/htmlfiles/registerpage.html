@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends 'htmlfiles/base.html' %}
+{% load static %}
+
+{% block mblock %}
+
+<div class="jumbotron">
+
+<!--si registeredKey est vrai, le user sest enregistrer-->
+{% if registeredKey %}
+<h1>Thanks for registering !</h1>
+
+<!--dans le cas contraire, il ne sest pas enregistrer et on lui
+propose de senregistrer-->
+{% else %}
+<h1>Register here !</h1>
+<!-- enctype est a preciser car nous utilisons deux form-->
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+{{ newUserFormKey.as_p }}
+{{ newExtendedUserFormKey.as_p }}
+<input type="submit" value="Register">
+</form>
+
+{% endif %}
+
+
+</div>
+
+{% endblock  %}
