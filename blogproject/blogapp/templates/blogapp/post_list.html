@@ -1,0 +1,22 @@
+{% extends 'blogapp/base.html' %}
+
+{% block content %}
+<!--centerstage style un peu cette page(voir css)-->
+<div class="centerstage">
+
+<!--post designe chaque instance de la table Post-->
+    {% for post in post_list %}
+        <div class="post">
+
+            <h1><a href="{% url 'detail-post-page' pk=post.id %}">{{ post.title }}</a></h1>
+            <div class="date">
+            <!--une application des filters sur la date-->
+                <p>Published on: {{ post.published_date|date:"D M Y"}}</p>
+            </div>
+            <!--count est une methode sqlite applicable a toutes les colonnes
+            pour compter des instances d'une requete-->
+            <a href="{% url 'detail-post-page' pk=post.id %}">Comments: {{ post.approved_comments.count }}</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

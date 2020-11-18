@@ -1,0 +1,16 @@
+{% extends 'blogapp/base.html' %}
+
+<!--la CommentForm, django gere le reste-->
+{% block content %}
+    <h1>New comment</h1>
+    <form method="POST" class="post-form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="save btn btn-default">Post Comment</button>
+    </form>
+
+    <!--l'utilisation du cdn de medium, cette class a ete precisee dans la
+    form-->
+    <script>var editor = new MediumEditor('.editable');</script>
+
+{% endblock %}

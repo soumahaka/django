@@ -1,0 +1,17 @@
+{% extends 'blogapp/base.html' %}
+
+
+<!--la PostForm, django gere le reste-->
+{% block content %}
+<h1>New post</h1>
+
+    <form method="POST" class="post-form">
+    {% csrf_token %}
+    {{form.as_p}} <!--.editable est embarque dans form comme widget-->
+    <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+    <!--l'utilisation du cdn de medium, cette class a ete precisee dans la
+    form-->
+    <script>var editor = new MediumEditor('.editable');</script>
+{% endblock  %}

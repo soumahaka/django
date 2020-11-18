@@ -1,0 +1,12 @@
+{% extends 'classapp/baseclassview.html' %}
+
+{% block mblock %}
+
+
+<form method="post">
+{% csrf_token %} 
+    <p>Are you sure you want to delete "{{ school }}"?</p> 
+    <input type="submit" value="Confirm" class ="btn btn-danger"> 
+</form> 
+
+{% endblock  %}

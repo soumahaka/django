@@ -1,0 +1,17 @@
+{% extends 'classapp/baseclassview.html' %}
+
+{% block mblock %}
+<h1>list of all the school instaces in Shool table</h1>
+
+<ol>
+<!--schools est le nom de la list des instaces de la table School-->
+
+{% for schoolinstace in schools  %}
+
+<li><a href="{{schoolinstace.id}}">{{schoolinstace.name}}</a></li>
+<hr/>
+{% endfor %}
+
+</ol>
+
+{% endblock  %}

@@ -1,0 +1,23 @@
+{% extends 'classapp/baseclassview.html' %}
+
+{% block mblock %}
+<h1>detail of school instace in Shool table</h1>
+<!--schooldetail est la detailview qui contient les details de
+chaque instance de la table-->
+
+<p>{{schooldetail.name}}</p>
+<p>{{schooldetail.principal}}</p>
+<p>{{schooldetail.location}}</p>
+
+
+
+<br><br>
+
+<!--ici l'indication de l'url seule ne suffit pas, il faut ajouter l'id de cette instance
+pour nous conduit a la page update de cette instance car il exige un /id-->
+<a href="{% url 'update' schooldetail.id %}"class="btn btn-warning" >Update</a>
+<a href="{% url 'delete' schooldetail.id %}"class="btn btn-danger" >Delete</a>
+
+{% endblock %}
+
+
